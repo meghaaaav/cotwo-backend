@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 dotenv.config();
-
+const cors=require("cors");
 const { mongoURI } = require("./keys");
 const postRoutes = require("./routes/postRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -14,7 +14,7 @@ const communityRoutes = require("./routes/communityRoutes"); // ✅ Added commun
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
